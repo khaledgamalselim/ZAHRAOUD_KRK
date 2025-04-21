@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>التسجيل</title>
+    <style>
+        body {
+            background-color: #000; /* لون الخلفية أسود */
+            color: #FFD700; /* لون النص ذهبي */
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden; /* لمنع ظهور شريط التمرير */
+        }
+        .signup-container {
+            background-color: #222; /* لون الخلفية للحاوية */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.5); /* ظل ذهبي */
+            width: 300px;
+            text-align: center;
+            position: relative; /* لإضافة تأثير الدخان */
+            z-index: 1; /* لضمان أن يكون فوق الخلفية */
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+        input[type="text"], input[type="email"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #444; /* لون الخلفية للحقول */
+            color: #FFD700; /* لون النص للحقول */
+        }
+        input[type="checkbox"] {
+            margin-right: 5px;
+            transform: scale(1.5); /* تكبير حجم الصندوق */
+        }
+        input[type="submit"] {
+            background-color: #FFD700; /* لون الخلفية للزر */
+            color: #000; /* لون النص للزر */
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        input[type="submit"]:hover {
+            background-color: #FFA500; /* لون الخلفية عند التحويم */
+        }
+        .policy-links {
+            text-align: left;
+            margin-top: 10px;
+        }
+        .policy-links a {
+            color: #FFD700;
+            text-decoration: none;
+            margin-right: 5px;
+        }
+        .policy-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-container">
+        <h2>التسجيل</h2>
+        <form action="Try.html" method="post" onsubmit="return validatePassword()">
+            <label for="username">اسم المستخدم:</label>
+            <input type="text" id="username" name="username" required>
+            
+            <label for="email">البريد الإلكتروني:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="password">كلمة المرور:</label>
+            <div style="position: relative;">
+                <input type="password" id="password" name="password" minlength="8" required>
+                <span style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;" onclick="togglePasswordVisibility()">
+                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-eye-slash" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M1.646 2.354a.5.5 0 0 1 .708 0l12 12a.5.5 0 0 1-.708.708l-12-12a.5.5 0 0 1 0-.708z"/>
+                        <path fill-rule="evenodd" d="M14.646 2.354a5.5 5.5 0 0 0-7.78 7.78l1.166-1.166a4 4 0 0 1 5.648-5.648l1.166-1.166z"/>
+                        <path d="M8 5a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/>
+                    </svg>
+                </span>
+            </div>
+            
+            <input type="checkbox" id="agree" name="agree" required>
+            <label for="agree">أوافق على <a href="privacy-policy.html" target="_blank">سياسة الخصوصية</a> و <a href="terms-conditions.html" target="_blank">شروط الاستخدام</a></label>
+            
+            <input type="submit" value="التسجيل">
+        </form>
+        <div class="policy-links">
+            <p>لديك حساب بالفعل؟ <a href="login.html">سجل دخولك هنا</a></p>
+        </div>
+    </div>
+
+    <script>
+        function togglePasswordVisibility() {
+            var passwordField = document.getElementById("password");
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+            } else {
+                passwordField.type = "password";
+            }
+        }
+
+        function validatePassword() {
+            var password = document.getElementById("password").value;
+            // يجب أن تحتوي كلمة المرور على الأقل 8 أحرف، وتشمل أحرف وأرقام ورموز.
+            if (password.length < 8 || !/[A-Za-z]/.test(password) || !/\d/.test(password) || !/[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/.test(password)) {
+                alert("كلمة المرور يجب أن تحتوي على الأقل 8 أحرف، وتشمل أحرف وأرقام ورموز.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+            <!-- تأثير الدخان -->
+            <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none;">
+                <img src="Smoke.gif" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+</body>
+</html>

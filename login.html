@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول</title>
+    <style>
+        body {
+            background-color: #000; /* لون الخلفية أسود */
+            color: #FFD700; /* لون النص ذهبي */
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden; /* لمنع ظهور شريط التمرير */
+        }
+        .login-container {
+            background-color: #222; /* لون الخلفية للحاوية */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.5); /* ظل ذهبي */
+            width: 300px;
+            text-align: center;
+            position: relative; /* لإضافة تأثير الدخان */
+            z-index: 1; /* لضمان أن يكون فوق الخلفية */
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #444; /* لون الخلفية للحقل */
+            color: #FFD700; /* لون النص للحقل */
+        }
+        .password-toggle {
+            position: relative;
+        }
+        .password-toggle input[type="password"] {
+            padding-right: 40px;
+        }
+        .password-toggle .toggle-password {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+        input[type="submit"] {
+            background-color: #FFD700; /* لون الخلفية للزر */
+            color: #000; /* لون النص للزر */
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        input[type="submit"]:hover {
+            background-color: #FFA500; /* لون الخلفية عند التحويم */
+        }
+        .register-link {
+            margin-top: 20px;
+        }
+        .register-link a {
+            color: #FFD700;
+            text-decoration: none;
+        }
+        .register-link a:hover {
+            text-decoration: underline;
+        }
+
+
+
+
+
+
+        
+/* CSS for Zahret Oud logo with curved edges */
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-image {
+  width: 200px; /* Width of the logo image */
+  height: auto; /* Maintains the aspect ratio */
+  max-width: 100%; /* Ensures the logo is responsive */
+  border-radius: 20px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow for a 3D effect */
+}
+
+.logo-image:hover {
+  opacity: 0.8; /* Slight hover effect */
+  transform: scale(1.05); /* Scale the image slightly on hover */
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-container">
+            <div class="logo">
+                <img src="logo.jpg" alt="Zahret Oud Logo" class="logo-image">
+              </div>
+            <br>
+        <h2>تسجيل الدخول</h2>
+        <form id="loginForm" action="Try.html" method="post">
+            <label for="username">اسم المستخدم:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">كلمة المرور:</label>
+            <div class="password-toggle">
+                <input type="password" id="password" name="password" minlength="8" required>
+                <span class="toggle-password" onclick="togglePasswordVisibility('password')">اظهار</span>
+            </div>
+            <input type="submit" value="تسجيل الدخول">
+        </form>
+        <div class="register-link">
+            <p>ليس لديك حساب؟ <a href="signup.html">سجل هنا</a></p>
+        </div>
+    </div>
+
+    <script>
+        function togglePasswordVisibility(passwordFieldId) {
+            var passwordField = document.getElementById(passwordFieldId);
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                document.querySelector(".toggle-password").textContent = "اخفاء";
+            } else {
+                passwordField.type = "password";
+                document.querySelector(".toggle-password").textContent = "اظهار";
+            }
+        }
+    </script>
+        <!-- تأثير الدخان -->
+        <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none;">
+            <img src="Smoke.gif" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+</body>
+</html>
